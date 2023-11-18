@@ -44,10 +44,10 @@ public class DriverBigData extends Configured implements Tool {
 		job.setJobName("Lab#4 - Ex.1 - step 1");
 
 		/*
-		 * ********************************************************* 
+		 * *********************************************************
 		 * Fill out the missing parts/update the content of this method
 		 ************************************************************
-		*/
+		 */
 		Path inputPath;
 		Path outputDir;
 		int numberOfReducersJob1;
@@ -83,65 +83,68 @@ public class DriverBigData extends Configured implements Tool {
 		job.setReducerClass(ReducerBigData1.class);
 
 		// Set reduce output key and value classes
-		job.setOutputKeyClass(...);
-		job.setOutputValueClass(...);
+		job.setOutputKeyClass(Text.class);
+		job.setOutputValueClass(FloatWritable.class);
 
 		// Set number of reducers
 		job.setNumReduceTasks(numberOfReducersJob1);
 
-		// Execute the first job and wait for completion
+		// Due to the structure used in the mapper for the user products statistics we
+		// can use a single job
+
 		if (job.waitForCompletion(true) == true) {
-			// Set up the second job
-			Job job2 = Job.getInstance(conf);
+			// // Set up the second job
+			// Job job2 = Job.getInstance(conf);
 
-			// Assign a name to the second job
-			job2.setJobName("Lab#3 - Ex.1 - step 2");
+			// // Assign a name to the second job
+			// job2.setJobName("Lab#3 - Ex.1 - step 2");
 
-			/* */
-			// Change the following part of the code
-			Path outputDir2;
-			int numberOfReducersJob2;
-			outputDir2 = new Path(args[4]);
+			// /* */
+			// // Change the following part of the code
+			// Path outputDir2;
+			// int numberOfReducersJob2;
+			// outputDir2 = new Path(args[4]);
 
-			// Set path of the input file/folder for this second job
-			// The output of the first job is the input of this second job    
-			FileInputFormat.addInputPath(job2, outputDir);
+			// // Set path of the input file/folder for this second job
+			// // The output of the first job is the input of this second job
+			// FileInputFormat.addInputPath(job2, outputDir);
 
-			// Set path of the output folder for this job
-			FileOutputFormat.setOutputPath(job2, outputDir2);
+			// // Set path of the output folder for this job
+			// FileOutputFormat.setOutputPath(job2, outputDir2);
 
-			// Specify the class of the Driver for this job
-			job2.setJarByClass(DriverBigData.class);
+			// // Specify the class of the Driver for this job
+			// job2.setJarByClass(DriverBigData.class);
 
-			// Set job input format
-			job2.setInputFormatClass(TextInputFormat.class);
+			// // Set job input format
+			// job2.setInputFormatClass(TextInputFormat.class);
 
-			// Set job output format
-			job2.setOutputFormatClass(TextOutputFormat.class);
+			// // Set job output format
+			// job2.setOutputFormatClass(TextOutputFormat.class);
 
-			// Set map class
-			job2.setMapperClass(MapperBigData2.class);
+			// // Set map class
+			// job2.setMapperClass(MapperBigData2.class);
 
-			// Set map output key and value classes
-			job2.setMapOutputKeyClass(...);
-			job2.setMapOutputValueClass(...);
+			// // Set map output key and value classes
+			// job2.setMapOutputKeyClass(...);
+			// job2.setMapOutputValueClass(...);
 
-			// Set reduce class
-			job2.setReducerClass(ReducerBigData2.class);
+			// // Set reduce class
+			// job2.setReducerClass(ReducerBigData2.class);
 
-			// Set reduce output key and value classes
-			job2.setOutputKeyClass(...);
-			job2.setOutputValueClass(...);
+			// // Set reduce output key and value classes
+			// job2.setOutputKeyClass(...);
+			// job2.setOutputValueClass(...);
 
-			// Set the number of reducers of the second job 
-			numberOfReducersJob2 = ..;
-			job2.setNumReduceTasks(numberOfReducersJob2);
+			// // Set the number of reducers of the second job
+			// numberOfReducersJob2 = ..;
+			// job2.setNumReduceTasks(numberOfReducersJob2);
 
-			// Execute the second job and wait for completion
-			if (job2.waitForCompletion(true) == true)
-				exitCode = 0;
-			else
-				exitCode = 1;
+			// // Execute the second job and wait for completion
+			// if (job2.waitForCompletion(true) == true)
+			// exitCode = 0;
+			// else
+			// exitCode = 1;
+			exitCode = 0;
 		} else
 			exitCode = 1;
 
