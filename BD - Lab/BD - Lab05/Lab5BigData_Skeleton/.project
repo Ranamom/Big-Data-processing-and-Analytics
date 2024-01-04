@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>MapReduceBasicProject</name>
+	<name>Lab5_TemplateMvn</name>
 	<comment></comment>
 	<projects>
 	</projects>
@@ -22,7 +22,7 @@
 	</natures>
 	<filteredResources>
 		<filter>
-			<id>1700407126266</id>
+			<id>1700214178106</id>
 			<name></name>
 			<type>30</type>
 			<matcher>
